@@ -7,6 +7,7 @@ import {
     Paper,
     CircularProgress,
     Box,
+    Button
 } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +15,7 @@ import axios from 'axios';
 import { AddressSection } from '../components/AddressSection';
 import { WorkSection } from '../components/WorkSection';
 import { DemographicSection } from '../components/DemographicSection';
+import { Link } from 'react-router-dom';
 
 const DashboardPage = () => {
     const user = useSelector((state) => state.user.currentUser);
@@ -90,7 +92,15 @@ const DashboardPage = () => {
                     <AddressSection address={address} />
                     <WorkSection company={company} />
                     <DemographicSection age={age} gender={gender} />
+                    <Button
+                        variant="contained"
+                        component={Link}
+                        to="/login"
+                    >
+                        Logout
+                    </Button>
                 </Box>
+
             </Paper>
         </Container>
     );
