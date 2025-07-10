@@ -11,6 +11,9 @@ import {
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AddressSection } from '../components/AddressSection';
+import { WorkSection } from '../components/WorkSection';
+import { DemographicSection } from '../components/DemographicSection';
 
 const DashboardPage = () => {
     const user = useSelector((state) => state.user.currentUser);
@@ -78,33 +81,16 @@ const DashboardPage = () => {
                             {firstName} {lastName}
                         </Typography>
                         <Typography color="text.secondary">
-                            {gender}, {age} years old
+                            {phone} | {email}
                         </Typography>
                     </Box>
                 </Box>
 
-                <Grid container spacing={3}>
-                    <Grid item xs={12} md={6}>
-                        <Typography variant="h6">Address</Typography>
-                        <Typography>
-                            {address?.address}, {address?.city}, {address?.state}, {address?.postalCode}
-                        </Typography>
-                    </Grid>
-
-                    <Grid item xs={12} md={6}>
-                        <Typography variant="h6">Work</Typography>
-                        <Typography>Company: {company?.name}</Typography>
-                        <Typography>Department: {company?.department}</Typography>
-                        <Typography>Title: {company?.title}</Typography>
-                    </Grid>
-
-                    <Grid item xs={12}>
-                        <Typography variant="h6">Contact Info</Typography>
-                        <Typography>Name: {firstName} {lastName}</Typography>
-                        <Typography>Phone: {phone}</Typography>
-                        <Typography>Email: {email}</Typography>
-                    </Grid>
-                </Grid>
+                <Box display="flex" flexDirection="column" gap={3}>
+                    <AddressSection address={address} />
+                    <WorkSection company={company} />
+                    <DemographicSection age={age} gender={gender} />
+                </Box>
             </Paper>
         </Container>
     );
