@@ -4,6 +4,22 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { loginSuccess } from '../redux/userSlice';
+import { LoginCard } from '../components/LoginCard';
+import '/src/styles.scss'
+
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+
+const bull = (
+    <Box
+        component="span"
+        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+        •
+    </Box>
+);
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -37,27 +53,9 @@ const LoginPage = () => {
     };
 
     return (
-        <Container maxWidth="sm" sx={{ mt: 8 }}>
-            <Box display="flex" flexDirection="column" gap={2}>
-                <Typography variant="h4" align="center">
-                    Login
-                </Typography>
-                <TextField
-                    label="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    fullWidth
-                />
-                {error && (
-                    <Typography color="error" variant="body2">
-                        {error}
-                    </Typography>
-                )}
-                <Button variant="contained" onClick={handleLogin}>
-                    Submit
-                </Button>
-            </Box>
-        </Container>
+        <div className='fullscreen'> 
+            <LoginCard error={error} setUsername={setUsername} username={username} handleLogin={handleLogin}></LoginCard>
+        </div>
     );
 };
 

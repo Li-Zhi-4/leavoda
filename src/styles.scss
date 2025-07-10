@@ -1,0 +1,16 @@
+.fullscreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+    circle,
+    oklch(97.7% 0.013 236.62) 0%,    /* center color */
+    oklch(97.7% 0.013 236.62 / 0) 100%  /* fully transparent at edges */
+    );
+}
+
+.input .MuiOutlinedInput-root {
+    border-radius: 8px;
+}
