@@ -8,7 +8,7 @@ cd leavoda
 npm install
 npm run dev
 ```
-Check out the app the vite default port: http://localhost:5173/
+The app will run on the vite default port: localhost:5173
 
 Or, checkout a running version of this app hosted by Netlify: https://leavoda.netlify.app/
 
